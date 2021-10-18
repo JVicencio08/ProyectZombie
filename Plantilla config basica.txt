@@ -1,0 +1,31 @@
+enable 
+configure terminal
+hostname SW_SERVIDORES
+ip domain-name duoc.cl
+enable secret ccna1
+crypto key generate RSA
+1024
+
+ip ssh version 2
+ip ssh time-out 20
+ip ssh authentication-retries 2
+username Javier secret duoc
+service password-encryption
+line vty 0 2
+login local
+transport input ssh
+exit
+
+line console 0
+password consola
+login
+
+exit
+banner motd #EQUIPO CON ACCESO RESTRINGIDO#
+ip ftp username admin
+ip ftp username respaldo
+wr
+
+
+
+
